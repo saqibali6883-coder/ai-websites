@@ -832,19 +832,59 @@
 
             <div class="price-card">
 
-                <h3>6 Months</h3>
+               <!-- Pricing Section -->
 
-                <div class="price">£35<span>/6mo</span></div>
+<div class="pricing-card">
+    <h3>🥉 1 Month</h3>
+    <div class="price">£15<span>/1mo</span></div>
 
-                <ul class="price-list">
+    <ul class="price-list">
+        <li>Live TV Channels</li>
+        <li>Sports & PPV</li>
+        <li>Movies & TV Shows</li>
+        <li>Video on Demand (VOD)</li>
+        <li>24/7 Customer Support</li>
+        <li>Free Firestick Setup</li>
+    </ul>
 
-                    <li>Everything in Standard</li>
+    <a href="#" class="btn">Buy Now</a>
+</div>
 
-                    <li>Full VOD Library</li>
+<div class="pricing-card featured">
+    <span class="badge">Most Popular</span>
 
-                    <li>Anti-Freeze System</li>
+    <h3>🥈 6 Months</h3>
+    <div class="price">£35<span>/6mo</span></div>
 
-                    <li>Fast Setup</li>
+    <ul class="price-list">
+        <li>Everything in 1 Month</li>
+        <li>Premium HD & 4K Channels</li>
+        <li>Full VOD Library</li>
+        <li>Anti-Freeze Technology</li>
+        <li>Fast Setup</li>
+        <li>Priority Support</li>
+    </ul>
+
+    <a href="#" class="btn">Buy Now</a>
+</div>
+
+<div class="pricing-card">
+    <span class="badge">Best Value</span>
+
+    <h3>🥇 12 Months</h3>
+    <div class="price">£60<span>/12mo</span></div>
+
+    <ul class="price-list">
+        <li>Everything in 6 Months</li>
+        <li>Maximum Stability</li>
+        <li>Ultra HD & 4K Streaming</li>
+        <li>Free Remote Installation</li>
+        <li>VIP Customer Support</li>
+        <li>Best Value for Money</li>
+    </ul>
+
+    <a href="#" class="btn">Buy Now</a>
+</div>
 
                 </ul>
 
@@ -880,7 +920,7 @@
 
                 <div class="info-item">
 
-                    <span>📞</span>
+                    <span>whatsapp icon in emoji from www.flaticon.com</span>
 
                     <p>+44 7436 763956</p>
 
@@ -890,7 +930,7 @@
 
                     <span>✉️</span>
 
-                    <p>support@firestickips.com</p>
+                    <p>firestickipsiptv@gmail.com</p>
 
                 </div>
 
@@ -912,7 +952,7 @@
 
                         <label>Full Name</label>
 
-                        <input type="text" placeholder="Your Name" required>
+                        <input type="text" placeholder="James" required>
 
                     </div>
 
