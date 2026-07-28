@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firestick IPS IPTV | Premium Streaming Experience</title>
+    <meta name="description" content="Experience high-quality IPTV streaming with Firestick IPS. Best Firestick setup, Live TV, and Sports channels.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        :root {
+            --primary: #7c3aed;
+            --primary-dark: #5b21b6;
+            --secondary: #0ea5e9;
+            --dark: #0f172a;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            scroll-behavior: smooth;
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1, h2, h3, .nav-logo {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(15, 23, 42, 1) 100%);
+        }
+
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            transition: all 0.4s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(124, 58, 237, 0.2);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #a78bfa, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(124, 58, 237, 0.4);
+        }
+
+        .service-img {
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .gallery-item img {
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .stat-card i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .accordion-active .accordion-content {
+            max-height: 500px;
+        }
+
+        .accordion-active i {
+            transform: rotate(180deg);
+        }
+
+        #back-to-top {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            background: var(--primary);
+            color: white;
+            padding: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .loader {
+            width: 48px;
+            height: 48px;
+            border: 5px solid #FFF;
+            border-bottom-color: var(--primary);
+            border-radius: 50%;
+            display: inline-block;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+        }
+
+        @keyframes rotation {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .plan-featured {
+            border: 2px solid var(--primary);
+            position: relative;
+        }
+
+        .plan-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 4px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="loader-wrapper">
+        <span class="loader"></span>
+    </div>
+
+    <nav class="glass-nav fixed w-full z-50 py-4 px-6 md:px-12 flex justify-between items-center">
+        <div class="nav-logo flex items-center space-x-2">
+            <div class="w-10 h-10 bg-gradient-to-br from-violet-600 to-sky-500 rounded-lg flex items-center justify-center text-white font-bold text-xl">F</div>
+            <span class="text-2xl font-extrabold tracking-tight">Firestick <span class="gradient-text">IPS</span></span>
+        </div>
+        
+        <div class="hidden md:flex space-x-8 items-center text-sm font-semibold uppercase tracking-wider">
+            <a href="#home" class="hover:text-violet-400 transition">Home</a>
+            <a href="#services" class="hover:text-violet-400 transition">Services</a>
+            <a href="#about" class="hover:text-violet-400 transition">About</a>
+            <a href="#pricing" class="hover:text-violet-400 transition">Pricing</a>
+            <a href="#contact" class="hover:text-violet-400 transition">Contact</a>
+            <a href="#pricing" class="btn-primary px-6 py-2 rounded-full text-white">Get Started</a>
+        </div>
+
+        <button class="md:hidden text-2xl" id="menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <div id="mobile-menu" class="fixed inset-0 bg-slate-900 z-40 hidden flex-col items-center justify-center space-y-8 text-2xl font-bold">
+        <a href="#home" onclick="toggleMenu()">Home</a>
+        <a href="#services" onclick="toggleMenu()">Services</a>
+        <a href="#about" onclick="toggleMenu()">About</a>
+        <a href="#pricing" onclick="toggleMenu()">Pricing</a>
+        <a href="#contact" onclick="toggleMenu()">Contact</a>
+        <button onclick="toggleMenu()" class="absolute top-8 right-8 text-3xl">&times;</button>
+    </div>
+
+    <section id="home" class="hero-gradient min-h-screen flex items-center pt-20 px-6 md:px-12 relative overflow-hidden">
+        <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right" data-aos-duration="1000">
+                <span class="bg-violet-900/30 text-violet-400 px-4 py-2 rounded-full text-sm font-bold uppercase tracking-widest mb-6 inline-block border border-violet-500/30">Premium IPTV Solutions</span>
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+                    Stream Your <br><span class="gradient-text">Favorites In 4K</span>
+                </h1>
+                <p class="text-gray-400 text-lg md:text-xl mb-10 max-w-lg leading-relaxed">
+                    Access over 20,000+ Live Channels, VOD, and Premium Sports. The ultimate streaming solution for your Firestick and all smart devices.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="#pricing" class="btn-primary px-10 py-4 rounded-xl text-center font-bold text-lg shadow-lg">Start Free Trial</a>
+                    <a href="#services" class="glass-card px-10 py-4 rounded-xl text-center font-bold text-lg hover:bg-white/10">Explore Channels</a>
+                </div>
+            </div>
+            <div class="relative" data-aos="fade-left" data-aos-duration="1000">
+                <div class="absolute -inset-4 bg-violet-600/20 blur-3xl rounded-full"></div>
+                <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Premium Streaming" class="relative rounded-2xl shadow-2xl border border-white/10 w-full object-cover">
+                <div class="absolute -bottom-6 -left-6 glass-card p-6 rounded-2xl shadow-xl flex items-center space-x-4">
+                    <div class="bg-green-500 w-3 h-3 rounded-full animate-pulse"></div>
+                    <span class="text-sm font-bold">15,400+ Active Streamers</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-900/50">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="stat-card" data-aos="zoom-in">
+                    <i class="fas fa-history"></i>
+                    <h3 class="text-4xl font-extrabold mb-2"><span class="counter" data-target="5">0</span>+</h3>
+                    <p class="text-gray-400 uppercase tracking-widest text-sm">Years Experience</p>
+                </div>
+                <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fas fa-users"></i>
+                    <h3 class="text-4xl font-extrabold mb-2"><span class="counter" data-target="10000">0</span>+</h3>
+                    <p class="text-gray-400 uppercase tracking-widest text-sm">Happy Customers</p>
+                </div>
+                <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fas fa-tv"></i>
+                    <h3 class="text-4xl font-extrabold mb-2"><span class="counter" data-target="15000">0</span>+</h3>
+                    <p class="text-gray-400 uppercase tracking-widest text-sm">Setup Complete</p>
+                </div>
+                <div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="fas fa-smile"></i>
+                    <h3 class="text-4xl font-extrabold mb-2"><span class="counter" data-target="99">0</span>%</h3>
+                    <p class="text-gray-400 uppercase tracking-widest text-sm">Satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Our Premium <span class="gradient-text">Services</span></h2>
+                <div class="w-24 h-1.5 bg-violet-600 mx-auto rounded-full mb-6"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto">Everything you need for the ultimate home cinema experience, professional installation, and premium channel access.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-3xl" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="IPTV Plans" class="service-img w-full mb-6">
+                    <h3 class="text-2xl font-bold mb-4">IPTV Subscription Plans</h3>
+                    <p class="text-gray-400 mb-6">Monthly, quarterly, and yearly plans with 20,000+ HD channels, including premium movies and series.</p>
+                    <a href="#pricing" class="text-violet-400 font-bold flex items-center group">
+                        Learn More <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition"></i>
+                    </a>
+                </div>
+                <div class="glass-card p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Firestick Setup" class="service-img w-full mb-6">
+                    <h3 class="text-2xl font-bold mb-4">Firestick Setup & Install</h3>
+                    <p class="text-gray-400 mb-6">Professional remote or on-site configuration for Amazon Firestick to ensure maximum performance.</p>
+                    <a href="#contact" class="text-violet-400 font-bold flex items-center group">
+                        Book Setup <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition"></i>
+                    </a>
+                </div>
+                <div class="glass-card p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Sports Channels" class="service-img w-full mb-6">
+                    <h3 class="text-2xl font-bold mb-4">Live Sports & Events</h3>
+                    <p class="text-gray-400 mb-6">Never miss a match. All major sports networks, PPV events, and international leagues in 4K.</p>
+                    <a href="#pricing" class="text-violet-400 font-bold flex items-center group">
+                        Get Sports <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 bg-slate-900/30 px-6">
+        <div class="container mx-auto flex flex-col md:flex-row items-center gap-16">
+            <div class="md:w-1/2" data-aos="fade-right">
+                <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="About IPTV" class="rounded-3xl shadow-2xl border border-white/5">
+            </div>
+            <div class="md:w-1/2" data-aos="fade-left">
+                <h2 class="text-4xl font-bold mb-6">Experience Future Of <br><span class="gradient-text">Television with Firestick IPS</span></h2>
+                <p class="text-gray-400 mb-6 leading-relaxed">
+                    With over 5 years of industry experience, Firestick IPS IPTV has been a leader in providing high-quality digital streaming services globally. Our mission is to revolutionize how you consume media by offering a reliable, buffering-free experience.
+                </p>
+                <div class="space-y-4 mb-8">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-violet-600/20 p-2 rounded-lg text-violet-400"><i class="fas fa-check"></i></div>
+                        <div>
+                            <h4 class="font-bold">Our Vision</h4>
+                            <p class="text-sm text-gray-500">Connecting families through world-class entertainment and sports content.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-sky-600/20 p-2 rounded-lg text-sky-400"><i class="fas fa-check"></i></div>
+                        <div>
+                            <h4 class="font-bold">24/7 Professional Support</h4>
+                            <p class="text-sm text-gray-500">Expert technicians available around the clock for setup and troubleshooting.</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="#pricing" class="btn-primary px-8 py-3 rounded-xl inline-block font-bold">Start Your Experience</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 bg-slate-900">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Setup <span class="gradient-text">Guides</span></h2>
+                <p class="text-gray-400">Watch how easy it is to set up your Firestick IPS service.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="video-container shadow-2xl" data-aos="zoom-in">
+                    <iframe src="https://www.youtube.com/embed/SshZ9_G8I1s" title="Firestick Setup Guide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-container shadow-2xl" data-aos="zoom-in" data-aos-delay="200">
+                    <iframe src="https://www.youtube.com/embed/5Fp3U_G8VqY" title="App Installation Guide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-24 px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-4">Choose Your <span class="gradient-text">Subscription</span></h2>
+                <p class="text-gray-400">Flexible plans tailored for your entertainment needs.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card p-10 rounded-3xl text-center" data-aos="fade-up">
+                    <h3 class="text-xl font-bold mb-2">Basic Plan</h3>
+                    <div class="text-4xl font-extrabold mb-6">$12<span class="text-lg text-gray-500 font-normal">/month</span></div>
+                    <ul class="text-left space-y-4 mb-10 text-gray-300">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> 10,000+ Channels</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> 4K/UHD Quality</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> 1 Device Access</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> 24/7 Support</li>
+                    </ul>
+                    <a href="#" class="block w-full py-4 glass-card hover:bg-white/10 rounded-xl font-bold">Select Plan</a>
+                </div>
+                <div class="glass-card p-10 rounded-3xl text-center plan-featured" data-aos="fade-up" data-aos-delay="100">
+                    <div class="plan-badge">MOST POPULAR</div>
+                    <h3 class="text-xl font-bold mb-2">Standard Plan</h3>
+                    <div class="text-4xl font-extrabold mb-6">$25<span class="text-lg text-gray-500 font-normal">/3 months</span></div>
+                    <ul class="text-left space-y-4 mb-10 text-gray-300">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> 20,000+ Channels</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> 4K/UHD Quality</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> 2 Devices Access</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Priority Support</li>
+                    </ul>
+                    <a href="#" class="block w-full py-4 btn-primary rounded-xl font-bold">Select Plan</a>
+                </div>
+                <div class="glass-card p-10 rounded-3xl text-center" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold mb-2">Premium Plan</h3>
+                    <div class="text-4xl font-extrabold mb-6">$80<span class="text-lg text-gray-500 font-normal">/year</span></div>
+                    <ul class="text-left space-y-4 mb-10 text-gray-300">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> All Premium Channels</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> VOD Library (50k+)</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> 3 Devices Access</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> VIP Technical Support</li>
+                    </ul>
+                    <a href="#" class="block w-full py-4 glass-card hover:bg-white/10 rounded-xl font-bold">Select Plan</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 bg-slate-900/50">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold">What Our <span class="gradient-text">Streamers Say</span></h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <img src="https://i.pravatar.cc/150?u=1" class="w-12 h-12 rounded-full border-2 border-violet-500">
+                        <div>
+                            <h4 class="font-bold">David Miller</h4>
+                            <div class="text-yellow-500 text-sm"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 italic">"The sports package is incredible. Zero lag during the Champions League final! Best IPTV I've ever used."</p>
+                </div>
+                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <img src="https://i.pravatar.cc/150?u=2" class="w-12 h-12 rounded-full border-2 border-violet-500">
+                        <div>
+                            <h4 class="font-bold">Sarah Jenkins</h4>
+                            <div class="text-yellow-500 text-sm"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 italic">"Setup was so easy thanks to their customer support team. Had it running on my Firestick in 10 minutes."</p>
+                </div>
+                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <img src="https://i.pravatar.cc/150?u=3" class="w-12 h-12 rounded-full border-2 border-violet-500">
+                        <div>
+                            <h4 class="font-bold">Michael Chen</h4>
+                            <div class="text-yellow-500 text-sm"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 italic">"The movie collection is updated weekly. The quality is true 4K. Highly recommended for any movie buff."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row gap-16">
+                <div class="md:w-1/2">
+                    <h2 class="text-4xl font-bold mb-8">Frequently Asked <span class="gradient-text">Questions</span></h2>
+                    <div class="space-y-4">
+                        <div class="glass-card rounded-xl accordion-item">
+                            <div class="p-6 flex justify-between items-center cursor-pointer accordion-header">
+                                <h4 class="font-bold">What devices are supported?</h4>
+                                <i class="fas fa-chevron-down transition"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <p class="p-6 pt-0 text-gray-400">We support Amazon Firestick, Android TV Boxes, Smart TVs, Smartphones (iOS & Android), Windows, and Mac computers.</p>
+                            </div>
+                        </div>
+                        <div class="glass-card rounded-xl accordion-item">
+                            <div class="p-6 flex justify-between items-center cursor-pointer accordion-header">
+                                <h4 class="font-bold">Do I need a VPN?</h4>
+                                <i class="fas fa-chevron-down transition"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <p class="p-6 pt-0 text-gray-400">While not mandatory, we recommend a VPN to bypass ISP throttling and ensure maximum privacy during streaming.</p>
+                            </div>
+                        </div>
+                        <div class="glass-card rounded-xl accordion-item">
+                            <div class="p-6 flex justify-between items-center cursor-pointer accordion-header">
+                                <h4 class="font-bold">How many channels are included?</h4>
+                                <i class="fas fa-chevron-down transition"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <p class="p-6 pt-0 text-gray-400">Our database includes 20,000+ live channels and over 60,000 VOD titles including movies and series.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="contact" class="md:w-1/2">
+                    <div class="glass-card p-10 rounded-3xl">
+                        <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
+                        <form class="space-y-4">
+                            <div class="grid grid-cols-2 gap-4">
+                                <input type="text" placeholder="First Name" class="w-full bg-slate-800 border border-white/10 rounded-xl p-4 focus:border-violet-500 outline-none">
+                                <input type="text" placeholder="Last Name" class="w-full bg-slate-800 border border-white/10 rounded-xl p-4 focus:border-violet-500 outline-none">
+                            </div>
+                            <input type="email" placeholder="Email Address" class="w-full bg-slate-800 border border-white/10 rounded-xl p-4 focus:border-violet-500 outline-none">
+                            <textarea placeholder="Your Message" rows="4" class="w-full bg-slate-800 border border-white/10 rounded-xl p-4 focus:border-violet-500 outline-none"></textarea>
+                            <button type="submit" class="w-full btn-primary py-4 rounded-xl font-bold text-lg">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 pt-20 pb-10 px-6 border-t border-white/5">
+        <div class="container mx-auto grid md:grid-cols-4 gap-12 mb-16">
+            <div class="col-span-2">
+                <div class="nav-logo flex items-center space-x-2 mb-6">
+                    <div class="w-10 h-10 bg-gradient-to-br from-violet-600 to-sky-500 rounded-lg flex items-center justify-center text-white font-bold text-xl">F</div>
+                    <span class="text-2xl font-extrabold">Firestick <span class="gradient-text">IPS</span></span>
+                </div>
+                <p class="text-gray-500 max-w-sm mb-8 leading-relaxed">
+                    Premium IPTV service provider offering the most stable and high-quality streaming experience for Firestick users worldwide.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-violet-600 transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-violet-600 transition"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-violet-600 transition"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-violet-600 transition"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg mb-6">Quick Links</h4>
+                <ul class="space-y-4 text-gray-500">
+                    <li><a href="#home" class="hover:text-violet-400">Home</a></li>
+                    <li><a href="#services" class="hover:text-violet-400">Services</a></li>
+                    <li><a href="#pricing" class="hover:text-violet-400">Pricing</a></li>
+                    <li><a href="#about" class="hover:text-violet-400">About Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg mb-6">Contact Info</h4>
+                <ul class="space-y-4 text-gray-500">
+                    <li class="flex items-center space-x-3"><i class="fas fa-envelope text-violet-500"></i> <span>support@firestickips.com</span></li>
+                    <li class="flex items-center space-x-3"><i class="fas fa-phone text-violet-500"></i> <span>+1 (555) 123-IPTV</span></li>
+                    <li class="flex items-center space-x-3"><i class="fas fa-map-marker-alt text-violet-500"></i> <span>Digital Solutions Global</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto border-t border-white/5 pt-8 text-center text-gray-600 text-sm">
+            <p>&copy; 2023 Firestick IPS IPTV. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="back-to-top" onclick="window.scrollTo(0,0)"><i class="fas fa-arrow-up"></i></div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        // Loader
+        window.addEventListener('load', () => {
+            document.querySelector('.loader-wrapper').style.display = 'none';
+        });
+
+        // Mobile Menu
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+        }
+        menuBtn.addEventListener('click', toggleMenu);
+
+        // Sticky Nav & Back to Top
+        window.onscroll = function() {
+            const nav = document.querySelector('nav');
+            const btt = document.getElementById('back-to-top');
+            if (window.scrollY > 100) {
+                nav.classList.add('shadow-2xl');
+                btt.style.display = 'block';
+            } else {
+                nav.classList.remove('shadow-2xl');
+                btt.style.display = 'none';
+            }
+            animateCounters();
+        };
+
+        // Accordion
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                item.classList.toggle('accordion-active');
+            });
+        });
+
+        // Counter Animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200;
+            
+            counters.forEach(counter => {
+                const rect = counter.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom >= 0 && !counter.classList.contains('animated')) {
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const count = +counter.innerText;
+                        const inc = target / speed;
+
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + inc);
+                            setTimeout(updateCount, 1);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                    counter.classList.add('animated');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
