@@ -6,55 +6,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Firestick IPS | Premium Streaming Support</title>
+<title>Firestick IPS | Premium Streaming Experience</title>
 
-<meta name="description" content="Premium streaming support with smart device setup, 4K and 8K entertainment solutions.">
-
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 
 <style>
 
-:root{
-
---primary:#2563eb;
---dark:#020617;
---card:#1e293b;
---text:#f8fafc;
---gray:#94a3b8;
-
-}
-
-
 *{
-
 margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Inter',sans-serif;
-
 }
-
-
-html{
-
-scroll-behavior:smooth;
-
-}
-
 
 body{
-
-background:var(--dark);
-color:var(--text);
-
+background:#020617;
+color:white;
+overflow-x:hidden;
 }
 
+html{
+scroll-behavior:smooth;
+}
 
 
 /* HEADER */
-
 
 header{
 
@@ -68,11 +45,11 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 
-background:rgba(2,6,23,.85);
+background:rgba(2,6,23,.9);
 
-backdrop-filter:blur(12px);
+backdrop-filter:blur(10px);
 
-z-index:999;
+z-index:1000;
 
 }
 
@@ -84,22 +61,18 @@ font-weight:800;
 
 }
 
-
 .logo span{
 
-color:var(--primary);
+color:#2563eb;
 
 }
-
 
 
 nav a{
 
 color:white;
 text-decoration:none;
-
 margin-left:25px;
-
 font-weight:600;
 
 }
@@ -107,7 +80,7 @@ font-weight:600;
 
 .btn{
 
-background:var(--primary);
+background:#2563eb;
 
 padding:14px 28px;
 
@@ -121,20 +94,7 @@ font-weight:700;
 
 display:inline-block;
 
-transition:.3s;
-
 }
-
-
-.btn:hover{
-
-transform:translateY(-4px);
-
-box-shadow:0 10px 25px rgba(37,99,235,.5);
-
-}
-
-
 
 
 /* HERO */
@@ -142,66 +102,205 @@ box-shadow:0 10px 25px rgba(37,99,235,.5);
 
 .hero{
 
-height:100vh;
+min-height:100vh;
 
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+padding:120px 6% 60px;
 
 background:
 
 linear-gradient(
-rgba(0,0,0,.65),
-rgba(0,0,0,.85)
+90deg,
+rgba(2,6,23,.95),
+rgba(2,6,23,.5)
 ),
 
 url("https://images.unsplash.com/photo-1593784991095-a205069470b6");
-
 
 background-size:cover;
 
 background-position:center;
 
+}
 
-display:flex;
 
-justify-content:center;
+.hero-text{
 
-align-items:center;
-
-text-align:center;
-
-padding:0 6%;
+width:50%;
 
 }
 
 
-.hero h1{
+.hero-text h1{
 
 font-size:60px;
-
-max-width:950px;
 
 line-height:1.1;
 
 }
 
 
-.hero p{
-
-max-width:750px;
+.hero-text p{
 
 font-size:20px;
 
 color:#cbd5e1;
 
-margin:25px auto;
+margin:25px 0;
 
 }
 
 
-.hero-buttons a{
 
-margin:10px;
+/* DEVICE AREA */
+
+
+.device-showcase{
+
+width:45%;
+
+position:relative;
+
+height:500px;
 
 }
+
+
+
+/* TV */
+
+
+.tv{
+
+position:absolute;
+
+right:0;
+
+top:60px;
+
+width:420px;
+
+height:250px;
+
+background:#111827;
+
+border:12px solid #334155;
+
+border-radius:15px;
+
+box-shadow:0 20px 60px #000;
+
+}
+
+
+.tv-screen{
+
+width:100%;
+
+height:100%;
+
+background:
+
+url("https://images.unsplash.com/photo-1593359677879-a4bb92f829d1");
+
+background-size:cover;
+
+background-position:center;
+
+}
+
+
+.tv-stand{
+
+width:80px;
+
+height:40px;
+
+background:#334155;
+
+margin:auto;
+
+}
+
+
+
+/* LAPTOP */
+
+
+.laptop{
+
+position:absolute;
+
+left:20px;
+
+bottom:40px;
+
+width:250px;
+
+height:160px;
+
+background:#111827;
+
+border:8px solid #64748b;
+
+border-radius:10px;
+
+}
+
+
+.laptop-screen{
+
+height:100%;
+
+background:url("https://images.unsplash.com/photo-1517336714731-489689fd1ca8");
+
+background-size:cover;
+
+}
+
+
+
+/* MOBILE */
+
+
+.mobile{
+
+position:absolute;
+
+right:50px;
+
+bottom:20px;
+
+width:90px;
+
+height:180px;
+
+background:#020617;
+
+border:5px solid #64748b;
+
+border-radius:20px;
+
+}
+
+
+.mobile-screen{
+
+height:100%;
+
+background:url("https://images.unsplash.com/photo-1511707171634-5f897ff02aa9");
+
+background-size:cover;
+
+border-radius:15px;
+
+}
+
 
 
 
@@ -216,7 +315,6 @@ padding:90px 6%;
 }
 
 
-
 .title{
 
 text-align:center;
@@ -228,16 +326,7 @@ margin-bottom:50px;
 
 .title h2{
 
-font-size:42px;
-
-}
-
-
-.title p{
-
-color:var(--gray);
-
-margin-top:10px;
+font-size:40px;
 
 }
 
@@ -248,7 +337,7 @@ margin-top:10px;
 /* TRUST */
 
 
-.trust-grid{
+.cards{
 
 display:grid;
 
@@ -259,10 +348,9 @@ gap:30px;
 }
 
 
-
 .card{
 
-background:var(--card);
+background:#1e293b;
 
 padding:35px;
 
@@ -272,32 +360,19 @@ text-align:center;
 
 border:1px solid #334155;
 
-transition:.3s;
-
-}
-
-
-.card:hover{
-
-transform:translateY(-10px);
-
-border-color:var(--primary);
-
 }
 
 
 .card h3{
 
-margin:20px 0 10px;
-
-font-size:22px;
+margin:20px 0;
 
 }
 
 
 .card p{
 
-color:var(--gray);
+color:#94a3b8;
 
 }
 
@@ -311,115 +386,53 @@ font-size:45px;
 
 
 
-
-/* DEVICES */
-
-
-.device-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-gap:30px;
-
-}
+/* RESPONSIVE */
 
 
+@media(max-width:900px){
 
-.device{
 
-background:var(--card);
+.hero{
 
-border-radius:20px;
+flex-direction:column;
 
-overflow:hidden;
-
-transition:.3s;
+text-align:center;
 
 }
 
 
-
-.device:hover{
-
-transform:translateY(-10px);
-
-}
-
-
-
-.device img{
+.hero-text{
 
 width:100%;
 
-height:230px;
+}
 
-object-fit:cover;
+
+.hero-text h1{
+
+font-size:40px;
 
 }
 
 
-.device-content{
+.device-showcase{
 
-padding:25px;
+width:100%;
 
-}
+height:400px;
 
-
-.device-content h3{
-
-margin-bottom:10px;
+margin-top:40px;
 
 }
 
 
-.device-content p{
+.tv{
 
-color:var(--gray);
+width:280px;
 
-}
-
-
-
-/* WHATSAPP */
-
-
-.whatsapp{
-
-position:fixed;
-
-right:25px;
-
-bottom:25px;
-
-width:65px;
-
-height:65px;
-
-background:#25D366;
-
-border-radius:50%;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-font-size:30px;
-
-text-decoration:none;
-
-z-index:999;
+height:170px;
 
 }
-
-
-
-
-
-@media(max-width:768px){
 
 
 nav{
@@ -429,21 +442,8 @@ display:none;
 }
 
 
-.hero h1{
-
-font-size:38px;
-
 }
 
-
-.title h2{
-
-font-size:32px;
-
-}
-
-
-}
 
 </style>
 
@@ -462,55 +462,71 @@ FIRESTICK<span>IPS</span>
 
 <nav>
 
-<a href="#home">Home</a>
-
-<a href="#about">About</a>
-
-<a href="#devices">Devices</a>
-
-<a href="#contact">Contact</a>
-
+<a href="#">Home</a>
+<a href="#">Devices</a>
+<a href="#">Reviews</a>
+<a href="#">Contact</a>
 
 <a class="btn" href="https://wa.me/447436763956">
 WhatsApp
 </a>
 
-
 </nav>
+
 
 </header>
 
 
 
+<section class="hero">
 
-<section class="hero" id="home">
 
-
-<div>
+<div class="hero-text">
 
 
 <h1>
-Premium Streaming Experience With Professional Support
+Premium Streaming Experience On Every Device
 </h1>
 
 
 <p>
-Enjoy smooth entertainment with easy setup support,
-smart device compatibility and reliable customer assistance.
+Enjoy entertainment on Smart TV, Computer, Laptop and Mobile with professional setup support.
 </p>
 
 
-<div class="hero-buttons">
-
 <a class="btn" href="https://wa.me/447436763956">
-Chat Now
+Get Started
 </a>
 
 
-<a class="btn" style="background:white;color:#111">
-View Services
-</a>
+</div>
 
+
+
+<div class="device-showcase">
+
+
+<div class="tv">
+
+<div class="tv-screen"></div>
+
+<div class="tv-stand"></div>
+
+</div>
+
+
+
+<div class="laptop">
+
+<div class="laptop-screen"></div>
+
+</div>
+
+
+
+<div class="mobile">
+
+<div class="mobile-screen"></div>
 
 </div>
 
@@ -522,10 +538,7 @@ View Services
 
 
 
-
-
-
-<section class="section" id="about">
+<section class="section">
 
 
 <div class="title">
@@ -534,15 +547,11 @@ View Services
 Why Customers Trust Us
 </h2>
 
-<p>
-Quality support and simple setup solutions worldwide.
-</p>
-
 </div>
 
 
 
-<div class="trust-grid">
+<div class="cards">
 
 
 <div class="card">
@@ -554,11 +563,10 @@ Trusted Streaming Support Team
 </h3>
 
 <p>
-Professional guidance and customer assistance for a smooth experience.
+Professional customer assistance and setup guidance.
 </p>
 
 </div>
-
 
 
 
@@ -567,15 +575,14 @@ Professional guidance and customer assistance for a smooth experience.
 <div class="icon">⭐</div>
 
 <h3>
-Thousands of Satisfied Customers
+Thousands Of Satisfied Customers
 </h3>
 
 <p>
-A growing community enjoying reliable entertainment solutions.
+A growing community worldwide.
 </p>
 
 </div>
-
 
 
 
@@ -584,126 +591,14 @@ A growing community enjoying reliable entertainment solutions.
 <div class="icon">🌍</div>
 
 <h3>
-Growing Community Worldwide
+Worldwide Community
 </h3>
 
 <p>
-Supporting customers across different regions.
+Quality support across different devices.
 </p>
 
 </div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-<section class="section" id="devices">
-
-
-<div class="title">
-
-<h2>
-Supported Devices
-</h2>
-
-<p>
-Compatible with modern entertainment devices.
-</p>
-
-</div>
-
-
-
-<div class="device-grid">
-
-
-<div class="device">
-
-<img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1">
-
-<div class="device-content">
-
-<h3>
-8K Smart TV
-</h3>
-
-<p>
-Ultra HD viewing experience with modern televisions.
-</p>
-
-</div>
-
-</div>
-
-
-
-<div class="device">
-
-<img src="https://images.unsplash.com/photo-1593784991095-a205069470b6">
-
-<div class="device-content">
-
-<h3>
-Smart TV Setup
-</h3>
-
-<p>
-Easy setup support for compatible devices.
-</p>
-
-</div>
-
-</div>
-
-
-
-
-<div class="device">
-
-<img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113">
-
-<div class="device-content">
-
-<h3>
-Streaming Devices
-</h3>
-
-<p>
-Support for popular streaming hardware.
-</p>
-
-</div>
-
-</div>
-
-
-
-
-<div class="device">
-
-<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3">
-
-<div class="device-content">
-
-<h3>
-Mobile & Tablet
-</h3>
-
-<p>
-Entertainment access on mobile devices.
-</p>
-
-</div>
-
-</div>
-
 
 
 </div>
