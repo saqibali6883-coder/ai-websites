@@ -1,1 +1,576 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Firestick IPS IPTV | Premium UK Streaming Service</title> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet"> <style> :root { --primary: #2563eb; --primary-dark: #1d4ed8; --secondary: #fbbf24; --dark: #0f172a; --light: #f8fafc; --gray: #64748b; --card-bg: #1e293b; } * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; } html { scroll-behavior: smooth; } body { background-color: var(--dark); color: var(--light); line-height: 1.6; } /* Navigation */ nav { position: fixed; top: 0; width: 100%; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); z-index: 1000; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); } .logo { font-size: 1.5rem; font-weight: 800; color: var(--light); text-decoration: none; display: flex; align-items: center; gap: 10px; } .logo span { color: var(--primary); } .nav-links { display: flex; gap: 2rem; align-items: center; } .nav-links a { text-decoration: none; color: var(--light); font-weight: 500; transition: 0.3s; } .nav-links a:hover { color: var(--primary); } .cta-btn { background: var(--primary); color: white; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: 0.3s; border: none; cursor: pointer; } .cta-btn:hover { background: var(--primary-dark); transform: translateY(-2px); } .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; } /* Hero Section */ .hero { height: 100vh; background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('https://unblast.com/wp-content/uploads/2021/01/Space-Background-Images-1024x682.jpg'); background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 5%; } .hero h1 { font-size: 4rem; margin-bottom: 1.5rem; max-width: 900px; line-height: 1.1; } .hero p { font-size: 1.25rem; color: var(--gray); max-width: 700px; margin-bottom: 2.5rem; } /* Features Section */ .section { padding: 80px 5%; } .section-header { text-align: center; margin-bottom: 60px; } .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; } .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; } .feature-card { background: var(--card-bg); padding: 40px; border-radius: 20px; transition: 0.3s; border: 1px solid rgba(255, 255, 255, 0.05); } .feature-card:hover { transform: translateY(-10px); border-color: var(--primary); } .feature-card i { font-size: 2rem; color: var(--primary); margin-bottom: 20px; display: block; } /* Services / Pricing Section */ .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; } .price-card { background: var(--card-bg); padding: 50px 30px; border-radius: 20px; text-align: center; border: 1px solid rgba(255, 255, 255, 0.1); position: relative; } .price-card.popular { border: 2px solid var(--primary); transform: scale(1.05); } .badge { position: absolute; top: 20px; right: 20px; background: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; } .price { font-size: 3rem; font-weight: 800; margin: 20px 0; } .price span { font-size: 1rem; color: var(--gray); } .price-list { list-style: none; margin: 30px 0; text-align: left; } .price-list li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; } .price-list li::before { content: '✓'; color: var(--primary); font-weight: bold; } /* Contact Section */ .contact-container { display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; max-width: 1100px; margin: 0 auto; } .contact-info h3 { font-size: 2rem; margin-bottom: 20px; } .info-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; } .contact-form { background: var(--card-bg); padding: 40px; border-radius: 20px; } .form-group { margin-bottom: 20px; } .form-group label { display: block; margin-bottom: 8px; font-size: 0.9rem; } .form-group input, .form-group textarea { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1); background: #0f172a; color: white; } /* Footer */ footer { padding: 60px 5% 30px; background: #070b14; border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center; } .footer-content { margin-bottom: 40px; } .footer-links { display: flex; justify-content: center; gap: 30px; margin: 20px 0; } .footer-links a { color: var(--gray); text-decoration: none; } @media (max-width: 768px) { .nav-links { display: none; } .menu-toggle { display: block; } .hero h1 { font-size: 2.5rem; } .contact-container { grid-template-columns: 1fr; } .price-card.popular { transform: scale(1); } } </style> </head> <body> <nav> <a href="#" class="logo">FIRESTICK<span>IPS</span></a> <div class="nav-links"> <a href="#home">Home</a> <a href="#about">About</a> <a href="#services">Services</a> <a href="#contact">Contact</a> <a href="https://wa.me/447436763956" class="cta-btn">Order Now</a> </div> <div class="menu-toggle" id="mobile-menu-btn">☰</div> </nav> <section id="home" class="hero"> <h1>Premium 4K Streaming for the United Kingdom</h1> <p>Access over 20,000+ worldwide channels, sports, and VOD at your fingertips. No buffering, no contracts, just pure entertainment.</p> <div style="display: flex; gap: 15px;"> <a href="#services" class="cta-btn">View Plans</a> <a href="#contact" class="cta-btn" style="background: transparent; border: 2px solid var(--primary);">Free Trial</a> </div> </section> <section id="about" class="section"> <div class="section-header"> <h2>Why Choose Firestick IPS?</h2> <p>We provide the most reliable IPTV service in the UK with a focus on quality and support.</p> </div> <div class="features-grid"> <div class="feature-card"> <i>📺</i> <h3>20,000+ Channels</h3> <p>Full access to UK, USA, Canada and International channels in HD & 4K quality.</p> </div> <div class="feature-card"> <i>⚡</i> <h3>Fast Servers</h3> <p>Anti-freeze technology and 99.9% uptime for a seamless viewing experience.</p> </div> <div class="feature-card"> <i>⚽</i> <h3>Live Sports</h3> <p>All major sports networks included. Never miss a game again with our premium sport packages.</p> </div> <div class="feature-card"> <i>📱</i> <h3>Multi-Device</h3> <p>Works on Firestick, Smart TVs, Android boxes, Mag Boxes, and Smartphones.</p> </div> </div> </section> <section id="services" class="section" style="background: #111827;"> <div class="section-header"> <h2>Our Pricing Plans</h2> <p>Flexible subscription options to suit your needs.</p> </div> <div class="pricing-grid"> <div class="price-card"> <h3>1 Month</h3> <div class="price">£15<span>/mo</span></div> <ul class="price-list"> <li>Over 20,000 Channels</li> <li>FHD & 4K Content</li> <li>Adult Content (Optional)</li> <li>24/7 Support</li> </ul> <a href="https://wa.me/447436763956" class="cta-btn" style="display: block;">Get Started</a> </div> <div class="price-card popular"> <span class="badge">BEST VALUE</span> <h3>12 Months</h3> <div class="price">£60<span>/yr</span></div> <ul class="price-list"> <li>Everything in Standard</li> <li>Priority Servers</li> <li>Save 50% vs Monthly</li> <li>Multi-room Options</li> </ul> <a href="https://wa.me/447436763956" class="cta-btn" style="display: block;">Get Started</a> </div> <div class="price-card"> <h3>6 Months</h3> <div class="price">£35<span>/6mo</span></div> <ul class="price-list"> <li>Everything in Standard</li> <li>Full VOD Library</li> <li>Anti-Freeze System</li> <li>Fast Setup</li> </ul> <a href="https://wa.me/447436763956" class="cta-btn" style="display: block;">Get Started</a> </div> </div> </section> <section id="contact" class="section"> <div class="contact-container"> <div class="contact-info"> <h3>Get in Touch</h3> <p>Have questions or need technical assistance? Our team is available 24/7 to help you get started.</p> <br> <div class="info-item"> <span>📍</span> <p>United Kingdom</p> </div> <div class="info-item"> <span>📞</span> <p>+44 7436 763956</p> </div> <div class="info-item"> <span>✉️</span> <p>support@firestickips.com</p> </div> <div class="info-item"> <span>💬</span> <p>WhatsApp Available 24/7</p> </div> </div> <div class="contact-form"> <form id="contactForm"> <div class="form-group"> <label>Full Name</label> <input type="text" placeholder="Your Name" required> </div> <div class="form-group"> <label>Email Address</label> <input type="email" placeholder="email@example.com" required> </div> <div class="form-group"> <label>Device Type</label> <input type="text" placeholder="e.g. Firestick, Smart TV"> </div> <div class="form-group"> <label>Message</label> <textarea rows="5" placeholder="Tell us how we can help..."></textarea> </div> <button type="submit" class="cta-btn" style="width: 100%;">Send Message</button> </form> </div> </div> </section> <footer> <div class="footer-content"> <a href="#" class="logo" style="justify-content: center; margin-bottom: 20px;">FIRESTICK<span>IPS</span></a> <p>Premium IPTV solutions for discerning viewers across the UK and beyond.</p> <div class="footer-links"> <a href="#home">Home</a> <a href="#about">About</a> <a href="#services">Pricing</a> <a href="#contact">Contact</a> </div> </div> <p style="color: var(--gray); font-size: 0.8rem;">&copy; 2023 Firestick IPS IPTV. All Rights Reserved. We do not host any content.</p> </footer> <script> // Mobile menu toggle const menuBtn = document.getElementById('mobile-menu-btn'); const navLinks = document.querySelector('.nav-links'); menuBtn.addEventListener('click', () => { navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex'; if(navLinks.style.display === 'flex') { navLinks.style.flexDirection = 'column'; navLinks.style.position = 'absolute'; navLinks.style.top = '70px'; navLinks.style.left = '0'; navLinks.style.width = '100%'; navLinks.style.background = '#0f172a'; navLinks.style.padding = '20px'; } }); // Form Submission document.getElementById('contactForm').addEventListener('submit', function(e) { e.preventDefault(); alert('Thank you for your message! Our team will contact you shortly via email or WhatsApp.'); this.reset(); }); // Close mobile menu on link click document.querySelectorAll('.nav-links a').forEach(link => { link.addEventListener('click', () => { if(window.innerWidth <= 768) { navLinks.style.display = 'none'; } }); }); </script> </body> </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Firestick IPS | Premium Streaming Support</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:#07111f;
+color:white;
+}
+
+
+/* HEADER */
+
+header{
+position:fixed;
+top:0;
+width:100%;
+padding:20px 6%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(7,17,31,.9);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+.logo{
+font-size:28px;
+font-weight:800;
+color:white;
+}
+
+.logo span{
+color:#2563eb;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-weight:600;
+}
+
+.btn{
+background:#2563eb;
+padding:12px 25px;
+border-radius:30px;
+color:white;
+text-decoration:none;
+font-weight:700;
+}
+
+
+/* HERO */
+
+.hero{
+
+height:100vh;
+
+background:
+linear-gradient(
+rgba(0,0,0,.65),
+rgba(0,0,0,.75)
+),
+url("https://images.unsplash.com/photo-1593784991095-a205069470b6");
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+
+padding:0 5%;
+
+}
+
+
+.hero h1{
+
+font-size:60px;
+max-width:900px;
+line-height:1.1;
+
+}
+
+
+.hero p{
+
+font-size:20px;
+max-width:700px;
+margin:25px auto;
+color:#cbd5e1;
+
+}
+
+
+
+.hero-buttons a{
+
+margin:10px;
+display:inline-block;
+
+}
+
+
+
+/* TRUST SECTION */
+
+
+.trust{
+
+padding:80px 6%;
+background:#0f172a;
+
+}
+
+
+.title{
+
+text-align:center;
+margin-bottom:50px;
+
+}
+
+
+.title h2{
+
+font-size:40px;
+
+}
+
+
+
+.trust-grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+
+}
+
+
+.trust-card{
+
+background:#1e293b;
+padding:40px 30px;
+border-radius:20px;
+text-align:center;
+border:1px solid #334155;
+transition:.3s;
+
+}
+
+
+.trust-card:hover{
+
+transform:translateY(-10px);
+border-color:#2563eb;
+
+}
+
+
+.trust-card h3{
+
+margin:15px 0;
+font-size:22px;
+
+}
+
+
+.trust-card p{
+
+color:#94a3b8;
+
+}
+
+
+.icon{
+
+font-size:45px;
+
+}
+
+
+
+/* DEVICES */
+
+
+.devices{
+
+padding:80px 6%;
+
+}
+
+
+.device-grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+
+}
+
+
+.device-card{
+
+background:#1e293b;
+border-radius:20px;
+overflow:hidden;
+
+}
+
+
+.device-card img{
+
+width:100%;
+height:220px;
+object-fit:cover;
+
+}
+
+
+.device-card div{
+
+padding:25px;
+
+}
+
+
+.device-card h3{
+
+margin-bottom:10px;
+
+}
+
+
+.device-card p{
+
+color:#94a3b8;
+
+}
+
+
+
+/* WHATSAPP */
+
+.whatsapp{
+
+position:fixed;
+right:25px;
+bottom:25px;
+
+background:#25D366;
+
+width:60px;
+height:60px;
+
+border-radius:50%;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:30px;
+
+text-decoration:none;
+
+z-index:999;
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:38px;
+
+}
+
+nav{
+
+display:none;
+
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+<header>
+
+<div class="logo">
+FIRESTICK<span>IPS</span>
+</div>
+
+
+<nav>
+
+<a href="#">Home</a>
+<a href="#">Services</a>
+<a href="#">Reviews</a>
+<a href="#">Contact</a>
+
+<a class="btn" href="https://wa.me/447436763956">
+WhatsApp
+</a>
+
+</nav>
+
+</header>
+
+
+
+
+<section class="hero">
+
+
+<div>
+
+<h1>
+Premium Streaming Experience With Professional Support
+</h1>
+
+
+<p>
+Enjoy a smooth entertainment experience with easy setup support,
+multi-device compatibility and reliable customer assistance.
+</p>
+
+
+<div class="hero-buttons">
+
+<a class="btn" href="https://wa.me/447436763956">
+Chat On WhatsApp
+</a>
+
+
+<a class="btn" style="background:white;color:#111">
+View Services
+</a>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section class="trust">
+
+
+<div class="title">
+
+<h2>
+Why Customers Trust Us
+</h2>
+
+</div>
+
+
+
+<div class="trust-grid">
+
+
+<div class="trust-card">
+
+<div class="icon">🏆</div>
+
+<h3>
+Trusted Streaming Support Team
+</h3>
+
+<p>
+Professional setup guidance and customer support
+to help you enjoy a smooth streaming experience.
+</p>
+
+</div>
+
+
+
+
+<div class="trust-card">
+
+<div class="icon">⭐</div>
+
+<h3>
+Thousands of Satisfied Customers
+</h3>
+
+<p>
+Join a growing community of customers enjoying
+quality entertainment solutions worldwide.
+</p>
+
+</div>
+
+
+
+
+<div class="trust-card">
+
+<div class="icon">🌍</div>
+
+<h3>
+Growing Community Worldwide
+</h3>
+
+<p>
+Serving customers across different regions with
+easy setup and dedicated support.
+</p>
+
+</div>
+
+
+
+</div>
+
+</section>
+
+
+
+
+
+
+<section class="devices">
+
+
+<div class="title">
+
+<h2>
+Compatible Devices
+</h2>
+
+</div>
+
+
+
+<div class="device-grid">
+
+
+
+<div class="device-card">
+
+<img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1">
+
+<div>
+
+<h3>
+8K Smart TV
+</h3>
+
+<p>
+Ultra HD viewing experience with modern smart televisions.
+</p>
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="device-card">
+
+<img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113">
+
+<div>
+
+<h3>
+Streaming Devices
+</h3>
+
+<p>
+Works with popular streaming devices and smart systems.
+</p>
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="device-card">
+
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3">
+
+<div>
+
+<h3>
+Mobile & Tablet
+</h3>
+
+<p>
+Entertainment access on your favourite mobile devices.
+</p>
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="device-card">
+
+<img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f">
+
+<div>
+
+<h3>
+Android Devices
+</h3>
+
+<p>
+Simple setup support for compatible Android devices.
+</p>
+
+</div>
+
+</div>
+
+
+
+</div>
+
+</section>
+
+
+
+
+<a class="whatsapp" href="https://wa.me/447436763956">
+💬
+</a>
+
+
+</body>
+</html>
